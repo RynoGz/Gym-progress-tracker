@@ -1,12 +1,12 @@
 import Link from "next/link";
 
-import { signUp } from "./actions";
+import { signIn } from "./actions";
 
 export const metadata = {
-  title: "Create account | Workout Progress Tracker",
+  title: "Sign in | Workout Progress Tracker",
 };
 
-export default async function SignUpPage({
+export default async function LoginPage({
   searchParams,
 }) {
   const params = await searchParams;
@@ -25,12 +25,12 @@ export default async function SignUpPage({
           </p>
 
           <h1 className="mt-2 text-3xl font-semibold tracking-tight">
-            Create your account
+            Sign in
           </h1>
 
           <p className="mt-3 text-sm leading-6 text-neutral-400">
-            Your workout templates and future sessions
-            will be private to your account.
+            Sign in to manage your workout templates and
+            training history.
           </p>
         </div>
 
@@ -43,25 +43,7 @@ export default async function SignUpPage({
           </div>
         ) : null}
 
-        <form action={signUp} className="space-y-5">
-          <div>
-            <label
-              htmlFor="displayName"
-              className="mb-2 block text-sm font-medium"
-            >
-              Display name
-            </label>
-
-            <input
-              id="displayName"
-              name="displayName"
-              type="text"
-              autoComplete="name"
-              required
-              className="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-4 py-3 text-base outline-none transition focus:border-neutral-400 focus:ring-2 focus:ring-neutral-700"
-            />
-          </div>
-
+        <form action={signIn} className="space-y-5">
           <div>
             <label
               htmlFor="email"
@@ -93,7 +75,7 @@ export default async function SignUpPage({
               id="password"
               name="password"
               type="password"
-              autoComplete="new-password"
+              autoComplete="current-password"
               required
               className="w-full rounded-lg border border-neutral-700 bg-neutral-950 px-4 py-3 text-base outline-none transition focus:border-neutral-400 focus:ring-2 focus:ring-neutral-700"
             />
@@ -101,19 +83,19 @@ export default async function SignUpPage({
 
           <button
             type="submit"
-            className="w-full rounded-lg bg-neutral-100 px-4 py-3 font-semibold text-neutral-950 transition hover:bg-white focus:outline-none focus:ring-2 focus:ring-neutral-400 focus:ring-offset-2 focus:ring-offset-neutral-900"
+            className="w-full rounded-lg bg-emerald-500 px-4 py-3 font-semibold text-neutral-950 transition hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-neutral-900"
           >
-            Create account
+            Sign in
           </button>
         </form>
 
         <p className="mt-6 text-center text-sm text-neutral-400">
-            Already registered?{" "}
-        <Link
-          href="/login"
-          className="font-medium text-neutral-200 underline-offset-4 hover:underline"
+          Need an account?{" "}
+          <Link
+            href="/signup"
+            className="font-medium text-neutral-200 underline-offset-4 hover:underline"
           >
-            Sign in
+            Create one
           </Link>
         </p>
 

@@ -13,15 +13,15 @@ export default function ConfirmedPage() {
         </h1>
 
         <p className="mt-4 leading-7 text-neutral-400">
-          Your account is active and your authenticated
-          session has been created.
+           Your email address has been confirmed. You can now
+           sign in to your account.
         </p>
 
         <Link
-          href="/"
+          href="/login"
           className="mt-8 inline-block rounded-lg bg-neutral-100 px-5 py-3 font-semibold text-neutral-950 transition hover:bg-white"
         >
-          Continue
+          Continue to sign in
         </Link>
       </section>
     </main>
